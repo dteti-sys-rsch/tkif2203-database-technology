@@ -1,6 +1,6 @@
-# TIF2242 - Assignments & Project Tech Specs
+# TKIF2203 - Assignments & Project Tech Specs
 
-This repository contains the official assignment briefs and project technical specifications for the Database Technology course (TIF2242). It is a reference for students, teaching assistants, and graders to implement, test, and evaluate assignment and project work.
+This repository contains the official assignment briefs and project technical specifications for the Database Technology course (TKIF2203). It is a reference for students, teaching assistants, and graders to implement, test, and evaluate assignment and project work.
 
 ## Assignments
 All assignment briefs and their technical requirements live in the `assignments/` folder.
