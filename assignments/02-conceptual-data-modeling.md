@@ -1,6 +1,6 @@
 # Homework 1: Conceptual Data Modeling
 
-**Course:** TKIF2203 – Database Systems  
+**Course:** TKIF2203 – Database Technology  
 **Instructor:** Dr. Guntur D Putra  
 **Due Date:** Thursday, 3 September 2026 at **12.59** (Late submissions are not accepted.)  
 **Submission:** Please submit your work through eLOK.
