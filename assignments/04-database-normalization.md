@@ -1,12 +1,13 @@
 # Homework 3: Database Normalization
 
-**Course:** TIF2242 – Database Systems  
+**Course:** TKIF2203 – Database Systems  
 **Instructor:** Dr. Guntur D Putra  
-**Due Date:** Monday, 16 March 2026 at **07.59**
+**Due Date:** Thursday, 17 September 2026 at **12.59**
 
 ## Objectives
 - Practice identifying repeating groups, partial and transitive dependencies.  
 - Convert unnormalized relations to 1NF, 2NF, and 3NF.  
+- Check whether the 3NF result also satisfies BCNF.  
 - Produce final relational schemas with primary keys, foreign keys, and constraints.  
 - Implement the normalized schema as logical design.
 
@@ -14,10 +15,11 @@
 For each given unnormalized table below:
 - Identify the candidate key(s), repeating groups, and functional dependencies.  
 - Produce the 3NF version.
+- **Check for BCNF**: list every functional dependency in your 3NF schema and confirm whether the determinant of each one is a candidate key. If any dependency violates BCNF, decompose further and briefly explain the trade-off (e.g., loss of a dependency) involved in doing so; if none violate it, state that explicitly.
 - Provide the final relational schemas (table name, attributes, PK, FK).  
 - Create the ERD for the updated logical design.
 
-When you submit, include: a short explanation of each normalization step and the anomalies (insertion, update, deletion) eliminated by your design.
+When you submit, include: a short explanation of each normalization step, the BCNF check, and the anomalies (insertion, update, deletion) eliminated by your design.
 
 ---
 
