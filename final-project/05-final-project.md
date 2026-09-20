@@ -3,7 +3,9 @@
 
 **Course:** TKIF2203 – Database Technology  
 **Instructor:** Dr. Guntur D Putra  
-**Due Date:** Thursday, 1 October 2026 at **12.59**
+**Due Date:** Thursday, 1 October 2026 at **12.59**  
+**Interview:** Thursday, 1 October 2026 from **13.00** till drop.  
+**Location**: TBD
 
 ## Overview
 [Sakila](https://github.com/jOOQ/sakila) is a classic sample database originally designed to model a DVD rental store. For your final project, adapt and extend the Sakila schema to design a relational database for a modern streaming service (video-on-demand). Your design must support streaming‑specific features and include analytics-ready structures for business insights.
