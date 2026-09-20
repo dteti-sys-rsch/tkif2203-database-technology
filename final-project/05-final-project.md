@@ -1,26 +1,27 @@
 
 # Final Project — Modernize the Sakila DB for a Streaming Service
 
-**Course:** TKIF2203 – Database Systems  
+**Course:** TKIF2203 – Database Technology  
 **Instructor:** Dr. Guntur D Putra  
-**Due Date:** Monday, 30 March 2026 at **07.59** with a presentation during our last class
+**Due Date:** Thursday, 1 October 2026 at **12.59**
 
 ## Overview
 [Sakila](https://github.com/jOOQ/sakila) is a classic sample database originally designed to model a DVD rental store. For your final project, adapt and extend the Sakila schema to design a relational database for a modern streaming service (video-on-demand). Your design must support streaming‑specific features and include analytics-ready structures for business insights.
 
-This is a capstone: combine data modeling, schema migration planning, SQL DDL, and analytics query design.
+This is a capstone: combine data modeling, SQL DDL, and analytics query design, which you should have learned from the Datacamp courses.
+
+> **Note:** This is an **individual project**. Each student must design, build, submit their own deliverables, and attend the final interview.
 
 ## Goals
 - Map the existing [Sakila schema](https://github.com/jOOQ/sakila) to a streaming domain and justify each change.  
 - Add new entities/relationships typical for streaming (user profiles, subscriptions, streaming sessions, episodes, availability windows, content licensing, devices, DRM/licensing metadata, recommendations, watch history, playlists).  
 - Design analytics artifacts (aggregated tables, event logs, or schemas suitable for time-series analysis) to support metrics such as plays, session length, retention, churn prediction, and content popularity.  
-- Provide SQL DDL for the final schema, sample migration notes, and example analytic queries.
+- Provide SQL DDL for the final schema and example analytic queries.
 - You will need to setup your `postgres` environment on your own machine to work on and complete this final project. Please refer to [my quick tutorial](../extras/docker-compose-setup.md) on how to setup a Docker-based `postgres` environment.
 
 ## Requirements
-1. Mapping & Migration Plan (20%):
-	- A table-by-table mapping from Sakila to your new schema (what you keep, rename, split, or drop).  
-	- For renamed/repurposed tables show notes describing data transformation (e.g., converting `rental` rows into `streaming_session` events) or example ALTER/MIGRATION SQL.  
+1. Mapping (20%):
+	- A table-by-table mapping from Sakila to your new schema (what you keep, rename, split, or drop), with a brief justification for each change.  
 2. Logical Schema & ERD (20%):
 	- Final relational schema (table list with attributes, PKs, FKs, NOT NULL/UNIQUE constraints).  
 	- An ERD (Crow's Foot) showing cardinalities and important relationships.  
@@ -49,7 +50,8 @@ You are free to come up with your own ideas for the data analytics purposes. How
 - `ads` and `ad_impressions` (if modelling ad-supported tiers)  
 - `transcode_profiles` and `cdn_locations` for delivery metadata
 
-## Example Feature Ideas (pick at least 3 to implement conceptually)
+## Example Feature Ideas
+From the following examples, pick at least three of them to implement conceptually in your solution:
 - Personalized recommendations (collaborative filtering signals stored as co-watch counts).  
 - Adaptive bitrate tracking and quality-of-experience metrics (store average bitrate per session).  
 - Regional licensing windows and geo-restriction enforcement in availability tables.  
@@ -57,18 +59,7 @@ You are free to come up with your own ideas for the data analytics purposes. How
 - Retention/cohort analysis tables and churn prediction features (labels + feature store).  
 - A/B testing support (experiment_id, variant, exposure events) to evaluate UI changes and content placements.
 
-Students must choose at least three features above and show how the schema supports them (tables, example queries, and an explanation of how data is collected/stored).
-
-
-## Evaluation Criteria (rubric)
-- Mapping correctness and migration clarity: 15 pts  
-- Completeness of final logical schema (PK/FK/constraints): 20 pts  
-- Quality and correctness of SQL DDL: 15 pts  
-- Analytics design & example queries (usefulness and correctness): 25 pts  
-- Sample data & demonstration: 10 pts  
-- Report clarity, tradeoffs, and privacy considerations: 15 pts
-
-Total: 100 pts
+Students should also show how the schema supports them (tables, example queries, and an explanation of how data is collected/stored).
 
 ## Submission Instructions
 - Package your deliverables into a single PDF containing:
@@ -76,16 +67,58 @@ Total: 100 pts
     - ERD image
     - SQL DDL
     - example queries with results (screenshots or sample output), and
-    - the short report.  
+    - the short report.
 - Include any SQL files or sample dumps as supplementary attachments (ZIP).  
 - Submit via eLOK by the due date. Include your name and student ID on the first page.
 
-## Optional Deliverables (extra credit)
-- A runnable Docker image or Docker Compose service that spins up a PostgreSQL (or MySQL) instance with your schema and sample data, plus a script that runs the example analytics queries (5 extra pts).  
-- A short demo notebook (Jupyter/Colab) that connects and visualizes at least one analytic metric (5 extra pts).
+## Final Interview
+Every student will go through a short **3-minute interview session** on **Thursday, 1 October 2026, starting at 13.00**. Location: TBA. Please be aware of the following:
+- The interviewers will be the course instructor (GDP) and the teaching assistant (Theo '24).
+- Interviews are conducted one-on-one and are mandatory for everyone, not just a random selection.
+- You will need your final database implementation ready to query live. Bring a device with you. The interviewers will ask you to run a query or briefly walk through part of your schema on the spot.
+- Track your position using the **online queue monitor**: [https://gdputra.dev/tbd-queue](https://gdputra.dev/tbd-queue). The page shows a timer for the ongoing interview and a look-ahead list of the next 10 students, so plan to be nearby once you're within that window.
+- Arrive on time. If you miss your turn, you lose all the grades and there will be no make up interview.
 
-## Final Presentation
-Some of you will be randomly selected to present your work in our last class on Monday 30 March, during which you give a demo of your final database implementation. Please be aware of the following:
-- You will need to present a live demo for this purpose, where you will do some queries to demonstrate your final work.
-- You may want to prepare a presentation deck to help you talk through your work. However the deck is not mandatory as you can still use your submission files to help pitch your demo.
-- Please be mindful that the presentation is mandatory if you are selected. If you happen to be unprepared, some grade deduction may be imposed.
+### Potential Interview Questions
+The interviewers will select a subset of questions from the pool below (not all questions will be asked, and follow-ups may be improvised based on your answers):
+
+**Design & Mapping**
+- Which Sakila tables did you keep, rename, split, or drop, and why?
+- Walk me through how a `rental` row in Sakila maps to your `streaming_session` (or equivalent) design.
+- What was the trickiest modeling decision you made, and what alternatives did you consider?
+
+**Schema & Constraints**
+- Point to a foreign key in your schema and explain what business rule it enforces.
+- Where did you apply normalization, and is there a place you deliberately denormalized for analytics? Why?
+- What would break if you removed a NOT NULL or UNIQUE constraint from a specific column of your choice?
+
+**SQL & Querying**
+- Run one of your analytics queries live — explain what it measures and why it's useful to the business.
+- How would you modify this query to filter by a specific region or date range?
+- Which of your tables would you index first for performance, and why?
+
+**Analytics & Features**
+- Which of the three+ streaming features did you implement, and how does your schema support it end-to-end?
+- How would you compute churn or retention from your schema? Walk through the tables involved.
+- If the business wanted a new metric tomorrow (e.g., "average session length per device type"), how would your schema support that?
+
+**Data & Demonstration**
+- Show me a row of sample data and trace it through two related tables.
+- If a user deletes their account, which tables are affected, and how does your schema handle that (cascade, soft delete, etc.)?
+
+**Trade-offs & Reflection**
+- What privacy or PII consideration did you account for in your design?
+- If you had one more week, what would you change or add?
+- What's one thing you'd do differently if you started this project over?
+
+### Evaluation Criteria
+
+| Criteria | Description | Points |
+|---|---|---|
+| Design & Mapping | Your Sakila-to-streaming mapping is correct and justified: you can explain what was kept, renamed, split, or dropped, and defend your key modeling decisions and the alternatives you considered. | 15 |
+| Schema & Constraints | Your logical schema is complete and sound: appropriate PKs, FKs, NOT NULL/UNIQUE/CHECK constraints, sensible normalization (with any deliberate denormalization justified), and you can explain the business rule behind each constraint. | 20 |
+| SQL & Querying | Your DDL runs and your queries are correct: you can run a query live, explain what it measures, adapt it on the spot (e.g., filter by region or date), and justify your indexing choices. | 15 |
+| Analytics & Features | Your schema supports at least three streaming features end-to-end and provides analytics-ready structures; the example queries are useful, and you can show how new metrics such as churn or retention would be computed. | 25 |
+| Data & Demonstration | Your sample data (at least 20 rows across key tables) demonstrates the schema and queries, and you can trace records across related tables and explain behavior such as deleting an account. | 10 |
+| Trade-offs & Reflection | You can discuss design trade-offs, privacy and PII considerations, and what you would improve or do differently, supported by a clear written report. | 15 |
+| **Total** | | **100** |
