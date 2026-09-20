@@ -3,7 +3,7 @@
 **Course:** TKIF2203 – Database Systems  
 **Instructor:** Dr. Guntur D Putra  
 **Datacamp Due Data:** Please refer to the corresponding assignments on Datacamp  
-**eLOK Due Data:** Tuesday, 30 September 2026 at **23.59**
+**eLOK Due Data:** Wednesday, 30 September 2026 at **23.59**
 
 
 ## Invitation Link
