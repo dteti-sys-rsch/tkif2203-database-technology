@@ -1,7 +1,7 @@
 
 # Final Project — Modernize the Sakila DB for a Streaming Service
 
-**Course:** TIF2242 – Database Systems  
+**Course:** TKIF2203 – Database Systems  
 **Instructor:** Dr. Guntur D Putra  
 **Due Date:** Monday, 30 March 2026 at **07.59** with a presentation during our last class
 
